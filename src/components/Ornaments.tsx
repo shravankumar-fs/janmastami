@@ -7,19 +7,13 @@ type Art = { className?: string; style?: CSSProperties };
    Aghora Labs mark — the "A" prism from the reference header
    --------------------------------------------------------------- */
 export function Logo({ className, style }: Art) {
-  const id = useId();
   return (
-    <svg className={className} style={style} viewBox="0 0 40 40" aria-hidden="true">
-      <defs>
-        <linearGradient id={`${id}-a`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8E7BFF" />
-          <stop offset="100%" stopColor="#5A49D6" />
-        </linearGradient>
-      </defs>
-      <rect width="40" height="40" rx="11" fill={`url(#${id}-a)`} />
-      <path d="M20 9.5 30 30.5h-5.6L20 20.6l-4.4 9.9H10L20 9.5Z" fill="#fff" opacity=".95" />
-      <path d="M20 9.5 30 30.5h-5.6L20 20.6V9.5Z" fill="#fff" opacity=".55" />
-    </svg>
+    <img
+      className={className}
+      style={{ width: 40, height: 40, borderRadius: 11, objectFit: "cover", ...style }}
+      src="/logo.jpg"
+      alt="Aghora Labs"
+    />
   );
 }
 
